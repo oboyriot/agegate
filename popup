@@ -1,0 +1,113 @@
+/* CSS for Age Verification Popup ---------- */
+#verify-age {
+  z-index: 5000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Website overlay before age is confirmed */
+  background-color: rgba(0,0,0,0.3);
+  transition: 500mS;
+  .va-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 250px;
+    margin-left: -(400px/2);
+    margin-top: -(250px/2);
+    overflow: hidden;
+    padding: 40px;
+    background-color: #f4efe5;
+    border:2.3px solid #bd802d ;
+    box-sizing: border-box;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    transition: 700mS;
+    /* Size settings for mobile */
+    @media (max-width: 410px) {
+    width: 320px;
+    height: 276px;
+    margin-left: -(320px/2);
+    margin-top: -(276px/2);
+   }
+    span {
+      display: block;
+      text-align: center;
+      margin-bottom: 8px;
+      font-family: brandon-grotesque;
+      &.title {
+        /* Colour and size of title */
+        color: #bd802d;
+        font-size: 24px;
+      }
+    }
+    button {
+      border: 0;
+      margin: 0;
+      padding: 0;
+      width:48%;
+      height:40px;
+      color:#FFF;
+      font-size: 18px;
+      /* Color of buttons */
+      background-color: #bd802d;
+      margin-top:35px;
+      font-family: brandon-grotesque;
+      transform:scale(1);
+      transition: .2s;
+      &.va-back {
+        display:block;
+        float:none;
+        margin:auto;
+        background-color: #bd802d ;
+        color:#FFFFFF !important;
+        margin-top:20px;
+      }
+      &.yes {
+        float:left;
+      }
+      &.no {
+        float:right;
+      }
+      &:hover {
+        transform:scale(1.1);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        background-color: lighten(#333333,10%);
+      }
+      /* Colour of 'Go Back' button on hover */
+      &.va-back:hover {
+        background-color: #E5C476;
+      }
+    }
+    .va-underBox {
+      position:absolute;
+      width: 400px;
+      height: 250px;
+      padding: 40px;
+      top:100%;
+      left:0;
+      right:0;
+      /* Background of sorry message */
+      background-color: #f4efe5;
+      transition: 700mS;
+      box-sizing:border-box;
+      * {
+        color:#2d3359 !important;
+      }
+    }
+  }
+  &.va-hidden {
+    opacity:0;
+    visibility: hidden;
+    .va-window {
+      transform:scale(0.5);
+    }
+  }
+  &.va-under {
+    .va-window .va-underBox {
+      top:0;
+    }
+  }
+}
+/* end of CSS for Age Verification Popup ---------- */
